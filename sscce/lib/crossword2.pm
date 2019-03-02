@@ -3,9 +3,22 @@ require Exporter;
 use utf8;
 
 our @ISA    = qw(Exporter);
-our @EXPORT = qw(  getsubset
+our @EXPORT = qw(  getsubset make_rectangular
   rangeparse print_aoa_utf8 print_aoa
   make_russian_crossword get_тайный);
+
+sub make_rectangular {
+	my ( $lines, $maxrows, $maxlength ) = @_;
+	my @out;
+	my $rowcount=1;
+	for my $line (@$lines) {
+		my $trimmed = substr $line, 0, $maxlength;
+		push @out, sprintf "%-*s", $maxlength, $trimmed;
+		last if ++$rowcount>$maxrows;
+	}
+	return \@out;
+}
+
 
 sub print_aoa {
   use warnings;
@@ -130,7 +143,7 @@ sub make_russian_crossword {
 
 # from haukex pm nodeid = 1224734
 
-use Test::More tests => 1;
+# use Test::More tests => 1;
 
 {
   say "inside first anonymous block";
@@ -200,4 +213,3 @@ sub get_тайный {
 }
 
 1;
-
