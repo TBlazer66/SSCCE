@@ -1,0 +1,4 @@
+abcdef
+aqcdef
+abcde█
+█bcdef
