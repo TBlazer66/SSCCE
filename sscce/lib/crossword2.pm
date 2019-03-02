@@ -130,7 +130,7 @@ sub make_russian_crossword {
 
 # from haukex pm nodeid = 1224734
 
-use Test::More tests => 1;
+# use Test::More tests => 1;
 
 {
   say "inside first anonymous block";
